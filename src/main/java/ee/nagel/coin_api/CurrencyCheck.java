@@ -14,7 +14,7 @@ public class CurrencyCheck {
 
     public CurrencyCheck(ApiResponse apiResponse) {
         this.apiResponse = apiResponse;
-        apiResponse.ad();
+
     }
 
     public void request() {
@@ -31,6 +31,7 @@ public class CurrencyCheck {
             input = sc.nextLine().toUpperCase();
             System.out.println(input);
         }
+        apiResponse.ad(input);
     }
 
     private Boolean inputCheck(String input) {
