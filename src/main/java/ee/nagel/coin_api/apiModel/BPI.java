@@ -1,22 +1,48 @@
 package ee.nagel.coin_api.apiModel;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Currency;
-import java.util.Map;
 
-public class BPI  implements Serializable {
-    Map<String, Currency> bpi;
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "USD",
+        "GBP",
+        "EUR"
+})
+public class BPI implements Serializable {
+    Currency USD;
+    Currency GBP;
+    Currency EUR;
 
-    public Map<String, Currency> getBpi() {
-        return bpi;
+    public Currency getEUR() {
+        return EUR;
     }
 
-    public void setBpi(Map<String, Currency> bpi) {
-        this.bpi = bpi;
+    public void setEUR(Currency EUR) {
+        this.EUR = EUR;
     }
 
-    public BPI(Map<String, Currency> bpi) {
-        this.bpi = bpi;
-        bpi.containsKey("eur");
+    public Currency getUSD() {
+        return USD;
     }
+
+    public void setUSD(Currency USD) {
+        this.USD = USD;
+    }
+
+    public Currency getGBP() {
+        return GBP;
+    }
+
+    public void setGBP(Currency GBP) {
+        this.GBP = GBP;
+    }
+
 }

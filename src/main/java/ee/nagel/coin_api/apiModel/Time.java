@@ -1,7 +1,12 @@
 package ee.nagel.coin_api.apiModel;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
+@NoArgsConstructor
+@AllArgsConstructor
 public class Time  implements Serializable {
     String updated;
     String updatedISO;
@@ -28,12 +33,6 @@ public class Time  implements Serializable {
     }
 
     public void setUpdateduk(String updateduk) {
-        this.updateduk = updateduk;
-    }
-
-    public Time(String updated, String updatedISO, String updateduk) {
-        this.updated = updated;
-        this.updatedISO = updatedISO;
         this.updateduk = updateduk;
     }
 }

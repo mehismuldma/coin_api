@@ -1,15 +1,20 @@
 package ee.nagel.coin_api.apiModel;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.AllArgsConstructor;
+
 import java.io.Serializable;
-import java.util.Currency;
 import java.util.Map;
 
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response implements Serializable {
     Time time;
     String disclaimer;
     String chartName;
-    Map<String, Currency> bpi;
-
+    Map<String, Double> bpi;
+    
+//    Map<String, Currency> bpi;
 
     public Time getTime() {
         return time;
@@ -35,18 +40,11 @@ public class Response implements Serializable {
         this.chartName = chartName;
     }
 
-    public Map<String, Currency> getBpi() {
+    public Map<String, Double> getBpi() {
         return bpi;
     }
 
-    public void setBpi(Map<String, Currency> bpi) {
-        this.bpi = bpi;
-    }
-
-    public Response(Time time, String disclaimer, String chartName, Map<String, Currency> bpi) {
-        this.time = time;
-        this.disclaimer = disclaimer;
-        this.chartName = chartName;
+    public void setBpi(Map<String, Double> bpi) {
         this.bpi = bpi;
     }
 }

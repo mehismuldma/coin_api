@@ -1,21 +1,21 @@
 package ee.nagel.coin_api;
 
-public class Currency {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Accessors(chain = true)
+@Data
+public class Currency implements Serializable {
     String code;
     String symbol;
-    Double rate;
+    String rate;
     String description;
     Double rate_float;
 
-    public Currency(String code, String symbol, Double rate, String description, Double rate_float) {
-        this.code = code;
-        this.symbol = symbol;
-        this.rate = rate;
-        this.description = description;
-        this.rate_float = rate_float;
-    }
-
-    public String getCode() {
-        return code;
-    }
 }
