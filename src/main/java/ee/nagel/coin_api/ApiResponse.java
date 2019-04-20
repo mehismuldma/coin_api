@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ApiResponse {
@@ -29,10 +30,19 @@ public class ApiResponse {
       messageConverters.add(converter);
       restTemplate.setMessageConverters(messageConverters);
         
-        LocalDate start = LocalDate.now().minusDays(30);
-        LocalDate end = LocalDate.now();
-        ResponseEntity<Response> response = restTemplate.getForEntity("https://api.coindesk.com/v1/bpi/historical/close.json?start=" + start + "&end=" + end + "&currency=" + input, Response.class);
-        System.out.println(response);
+      LocalDate start = LocalDate.now().minusDays(30);
+      LocalDate end = LocalDate.now();
+      ResponseEntity<Response> response = restTemplate.getForEntity("https://api.coindesk.com/v1/bpi/historical/close.json?start=" + start + "&end=" + end + "&currency=" + input, Response.class);
+      Map<String, Double> mapOfDatesAndPrices = response.getBody().getBpi();
+      System.out.println();
     }
+    
+//    private Double getMaxPrice(Map<String, Double> datesAndPrices) {
+//      // get max price from map and return
+//    }
+//    
+//    private Double getMinPrice(Map<String, Double> datesAndPrices) {
+//      // get min price from map and return
+//    }
 }
 
