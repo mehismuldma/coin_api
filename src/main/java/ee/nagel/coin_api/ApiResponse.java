@@ -54,6 +54,7 @@ public class ApiResponse {
         maxPrice = price;
       }
     }
+    
     return maxPrice;
   }
 
